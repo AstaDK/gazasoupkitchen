@@ -1,5 +1,5 @@
 import BlurredBgComponent from '@/components/blurred-bg';
-import { Mission } from '@/components/column-layout';
+import { ColumnLayout } from '@/components/column-layout';
 import { BLUR_DATA_URL, MEDIAS_PAGE } from '@/constant';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -35,7 +35,7 @@ export default function MediaPage() {
           For media inquiries or to request interviews, please contact our communications team. Thank you for your
           interest and support!
         </p>
-        <Mission
+        <ColumnLayout
           headline="URGENT CALL FOR SUPPORT: PALESTINIANS IN GAZA NEED YOUR HELP NOW"
           paragraphs={[
             'Your support fuels our mission. Every donation brings us closer to a hunger-free Gaza',

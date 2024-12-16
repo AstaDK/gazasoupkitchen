@@ -1,5 +1,5 @@
 import BlurredBgComponent from '@/components/blurred-bg';
-import { Mission } from '@/components/column-layout';
+import { ColumnLayout } from '@/components/column-layout';
 import { BLUR_DATA_URL, GALLERIES_PAGE } from '@/constant';
 import Image from 'next/image';
 
@@ -24,7 +24,7 @@ export default function GalleryPage() {
             </div>
           ))}
         </div>
-        <Mission
+        <ColumnLayout
           headline="URGENT CALL FOR SUPPORT: PALESTINIANS IN GAZA NEED YOUR HELP NOW"
           paragraphs={[
             'Your support fuels our mission. Every donation brings us closer to a hunger-free Gaza',
