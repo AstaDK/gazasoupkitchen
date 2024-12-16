@@ -7,3 +7,15 @@ export type Event = {
   description: string;
   link: string;
 };
+
+export type ColumnLayoutProps = {
+  imageSrc: string;
+  imageAlt: string;
+  headline: string;
+  paragraphs: string[];
+  imageWidth?: number;
+  imageHeight?: number;
+  className?: string;
+  reverseOrder?: boolean;
+  mission?: boolean;
+};
