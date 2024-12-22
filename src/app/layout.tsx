@@ -14,9 +14,62 @@ const openSans = Open_Sans({
 export async function generateMetadata(): Promise<Metadata> {
   const { data } = await fetchGlobalData();
 
+  const title = data.title;
+  const description = data.description;
+
   return {
-    title: data.title,
-    description: data.description,
+    title: {
+      default: title,
+      template: `%s | ${title}`,
+    },
+    description,
+    applicationName: 'Gaza Soup Kitchen',
+    authors: [
+      {
+        name: 'Gaza Soup Kitchen',
+        url: 'https://gazasoupkitchen.com/about',
+      },
+    ],
+    keywords: [
+      'Gaza Food Aid',
+      'Humanitarian Relief',
+      'Food Distribution',
+      'Emergency Support',
+      'Palestine Aid',
+      'Food Security',
+      'Humanitarian Crisis',
+      'Food Assistance',
+      'Aid Organization',
+      'Emergency Relief',
+    ],
+    openGraph: {
+      title,
+      description,
+      url: 'https://gazasoupkitchen.com',
+      siteName: title,
+      images: [
+        {
+          url: 'https://gazasoupkitchen.com/favicon-32x32.png',
+          alt: 'Gaza Soup Kitchen',
+        },
+      ],
+      locale: 'en_US',
+      type: 'website',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    category: 'non-profit',
+    creator: 'Gaza Soup Kitchen',
+    publisher: 'Gaza Soup Kitchen',
   };
 }
 
