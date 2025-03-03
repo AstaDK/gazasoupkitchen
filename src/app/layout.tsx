@@ -1,8 +1,10 @@
-import type { Metadata } from 'next';
-import { Open_Sans } from 'next/font/google';
-import './globals.css';
-import Navbar from '../components/navbar';
+import { getGlobalData } from '@/actions/strapi';
 import Footer from '@/components/footer';
+import type { Metadata } from 'next';
+import { ViewTransitions } from 'next-view-transitions';
+import { Open_Sans } from 'next/font/google';
+import Navbar from '../components/navbar';
+import './globals.css';
 
 const openSans = Open_Sans({
   weight: ['300', '400', '500', '600', '700', '800'],
@@ -10,22 +12,32 @@ const openSans = Open_Sans({
   subsets: ['latin'],
 });
 
-export const metadata: Metadata = {
-  title: 'GAZA SOUP KITCHEN',
-  description: 'Our goal is clear: to ensure no one in Gaza goes to bed hungry. This is more than just an initiative, it\'s a personal vow.Don\'t wait, donate to Palestine Now.',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { data } = await getGlobalData();
 
-export default function RootLayout({
+  return {
+    title: data.title,
+    description: data.description,
+  };
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { data } = await getGlobalData();
+
+  if (!data) return null;
+
   return (
     <html lang="en">
       <body className={`${openSans} antialiased`}>
-        <Navbar />
-        {children}
-        <Footer />
+        <ViewTransitions>
+          <Navbar navbar={data.navbar} />
+          {children}
+          <Footer footer={data.footer} />
+        </ViewTransitions>
       </body>
     </html>
   );
