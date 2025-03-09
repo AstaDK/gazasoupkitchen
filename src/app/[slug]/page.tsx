@@ -7,7 +7,7 @@ import { SectionRenderer } from '@/components/section-renderer';
 import { SectionData } from '@/types';
 
 export async function generateStaticParams() {
-  return [{ slug: '/' }, { slug: 'about' }, { slug: 'gallery' }, { slug: 'media' }, { slug: 'donation' }];
+  return [{ slug: 'about' }, { slug: 'gallery' }, { slug: 'media' }, { slug: 'donation' }];
 }
 
 export default async function Dynamic({ params }: { params: Promise<{ slug: string }> }) {
