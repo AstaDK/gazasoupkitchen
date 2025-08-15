@@ -35,10 +35,12 @@ const donationMethods = [
   },
   {
     title: 'Quick Payment',
-    description: 'Make an immediate impact through PayPal or Venmo. Fast, secure, and convenient payment options.',
+    description: 'Make an immediate impact through PayPal or Givebutter. Fast, secure, and convenient payment options.',
     icon: <LuCreditCard className="w-12 h-12 text-[#3CC78F]" />,
-    link: 'https://givebutter.com/AReeXq',
-    buttonText: 'Pay with PayPal/Venmo',
+    links: [
+      { label: 'Givebutter', href: 'https://givebutter.com/AReeXq' },
+      { label: 'PayPal', href: 'https://www.paypal.com/US/fundraiser/charity/5327477' },
+    ],
   },
 ];
 
@@ -205,14 +207,20 @@ const DonatePage = () => {
                 <p className="text-base font-medium text-gray-600 leading-relaxed transition-all duration-300 group-hover:text-gray-800">
                   {donationMethods[3].description}
                 </p>
-                <Button
-                  as="a"
-                  target="_blank"
-                  href={donationMethods[3].link}
-                  className="text-center w-full bg-[#2A8C61] text-white font-bold py-3 px-6 rounded-xl transition-all transform hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#3CC78F] focus:ring-offset-2"
-                >
-                  {donationMethods[3].buttonText}
-                </Button>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {Array.isArray(donationMethods[3].links) &&
+                    donationMethods[3].links.map(({ label, href }) => (
+                      <Button
+                        key={href}
+                        as="a"
+                        target="_blank"
+                        href={href}
+                        className="text-center w-full bg-[#2A8C61] text-white font-bold py-3 px-6 rounded-xl transition-all transform hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#3CC78F] focus:ring-offset-2"
+                      >
+                        {label}
+                      </Button>
+                    ))}
+                </div>
               </div>
             </div>
           </div>
