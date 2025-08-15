@@ -1,7 +1,9 @@
 'use client';
 import { useState } from 'react';
 import { AiOutlineCopy, AiOutlineHeart, AiOutlineShareAlt } from 'react-icons/ai';
+import { FaPaypal } from 'react-icons/fa';
 import { LuBanknote, LuCreditCard, LuShield } from 'react-icons/lu';
+import { SiGofundme } from 'react-icons/si';
 import { Button } from './button';
 
 const donationMethods = [
@@ -184,7 +186,10 @@ const DonatePage = () => {
                   href={donationMethods[2].link}
                   className="text-center w-full bg-[#2A8C61] text-white font-bold py-3 px-6 rounded-xl transition-all transform hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#3CC78F] focus:ring-offset-2"
                 >
-                  {donationMethods[2].buttonText}
+                  <span className="flex items-center justify-center gap-2">
+                    <SiGofundme className="w-5 h-5" />
+                    {donationMethods[2].buttonText}
+                  </span>
                 </Button>
               </div>
             </div>
@@ -217,7 +222,10 @@ const DonatePage = () => {
                         href={href}
                         className="text-center w-full bg-[#2A8C61] text-white font-bold py-3 px-6 rounded-xl transition-all transform hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#3CC78F] focus:ring-offset-2"
                       >
-                        {label}
+                        <span className="flex items-center justify-center gap-2">
+                          {label === 'PayPal' && <FaPaypal className="w-5 h-5" />}
+                          {label}
+                        </span>
                       </Button>
                     ))}
                 </div>
