@@ -1,8 +1,7 @@
-import { GetInvolvedSection } from '@/types';
-import Image from 'next/image';
-import Counter from './number-counter';
 import { DONATION_URL } from '@/constant';
+import Image from 'next/image';
 import { Button } from './button';
+import Counter from './number-counter';
 
 const CARDS = [
   {
@@ -25,7 +24,7 @@ const CARDS = [
     title: 'Be a volunteer',
     image: '/help/3.jpg',
     alt: 'Be a volunteer',
-    description: 'Even the all-powerful Pointing has no control about the blind texts.',
+    description: 'Where help is needed, hands are wanted.',
   },
 ];
 
